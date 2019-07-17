@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    protected String getAnagram(String source) {
+    public static String getAnagram(String source) {
 
         String result = "";
 
@@ -85,7 +85,12 @@ public class MainActivity extends AppCompatActivity {
                 right--;
                 left++;
             }
-            result += new String(characters) + " ";
+
+            if (result == "") {
+                result += new String(characters);
+            } else {
+                result += " " + new String(characters);
+            }
         }
 
         return result;
