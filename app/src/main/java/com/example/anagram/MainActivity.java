@@ -85,7 +85,11 @@ public class MainActivity extends AppCompatActivity {
                 right--;
                 left++;
             }
-            result += new String(characters) + " ";
+            if (result == "") {
+                result += new String(characters);
+            } else {
+                result += " " + new String(characters);
+            }
         }
 
         return result;
