@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public static String getAnagram(String source) {
+    public String getAnagram(String source) {
 
         String result = "";
 
