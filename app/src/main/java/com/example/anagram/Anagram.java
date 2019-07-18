@@ -45,10 +45,11 @@ public class Anagram {
                 right--;
                 left++;
             }
-            if (result.toString() == "") {
+            if (result.toString().isEmpty()) {
                 result.append(new String(characters));
             } else {
-                result.append(" " + new String(characters));
+                result.append(" ");
+                result.append(new String(characters));
             }
         }
 
