@@ -1,4 +1,4 @@
-package com.example.anagram;
+package com.devproject.anagram;
 
 public class Anagram {
 
