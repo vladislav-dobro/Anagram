@@ -37,62 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                mAnagrams.setText(getAnagram(mSourceLine.getText().toString()));
+                mAnagrams.setText(Anagram.getAnagram(mSourceLine.getText().toString()));
             }
         });
     }
 
-    protected String getAnagram(String source) {
-
-        String result = "";
-
-        for (String word: source.split(" ")) {
-
-            int size = word.length();
-            char tmp;
-            char[] characters = word.toCharArray();
-
-            int left = 0;
-            int right = size - 1;
-
-            while (left < right) {
-
-                if (!Character.isLetter(characters[left]) &&
-                        Character.isLetter(characters[right])) {
-
-                    while (!Character.isLetter(characters[left]) && left < right) {
-                        left++;
-                    }
-
-                } else if (Character.isLetter(characters[left]) &&
-                        !Character.isLetter(characters[right])) {
-
-                    while (!Character.isLetter(characters[right]) && left < right) {
-                        right--;
-                    }
-
-                }
-
-                if (Character.isLetter(characters[left]) &&
-                        Character.isLetter(characters[right]) && left < right) {
-
-                    tmp = characters[left];
-                    characters[left] = characters[right];
-                    characters[right] = tmp;
-
-                }
-
-                right--;
-                left++;
-            }
-            if (result == "") {
-                result += new String(characters);
-            } else {
-                result += " " + new String(characters);
-            }
-        }
-
-        return result;
-    }
 
 }
